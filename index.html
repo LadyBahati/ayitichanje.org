@@ -132,7 +132,7 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 80px 24px 60px;
+    padding: 80px 24px 140px;
     position: relative;
     overflow: hidden;
   }
@@ -944,6 +944,12 @@ setLang('fr', document.querySelectorAll('.lang-btn')[0]);
 // Force retour en haut à chaque chargement
 if (history.scrollRestoration) history.scrollRestoration = 'manual';
 window.scrollTo(0, 0);
+// Double sécurité après le rendu
+setTimeout(() => window.scrollTo(0, 0), 50);
+// Nettoyer le hash dans l'URL sans recharger
+if (window.location.hash) {
+  history.replaceState(null, '', window.location.pathname);
+}
 </script>
 </body>
 </html>
