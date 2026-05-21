@@ -30,18 +30,18 @@
   /* ── LANG BAR ── */
   .lang-bar {
     background: var(--dark);
-    padding: 8px 24px;
+    padding: 14px 40px;
     display: flex;
     justify-content: flex-end;
-    gap: 8px;
+    gap: 12px; align-items: center;
   }
   .lang-btn {
     background: none;
     border: 1px solid rgba(255,255,255,0.3);
-    color: rgba(255,255,255,0.7);
-    padding: 4px 12px;
+    color: rgba(255,255,255,0.85);
+    padding: 7px 20px;
     border-radius: 20px;
-    font-size: 13px;
+    font-size: 17px;
     cursor: pointer;
     font-family: 'Barlow', sans-serif;
     transition: all 0.2s;
@@ -57,14 +57,14 @@
   nav {
     background: var(--white);
     border-bottom: 2px solid var(--light);
-    padding: 0 32px;
+    padding: 0 48px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     position: sticky;
     top: 0;
     z-index: 100;
-    height: 70px;
+    height: 88px;
     box-shadow: 0 2px 20px rgba(26,43,140,0.08);
   }
   .nav-logo {
@@ -74,20 +74,20 @@
     text-decoration: none;
   }
   .nav-logo img {
-    height: 50px;
+    height: 70px;
     width: auto;
   }
   .nav-links {
     display: flex;
-    gap: 32px;
+    gap: 40px;
     list-style: none;
     align-items: center;
   }
   .nav-links a {
     text-decoration: none;
-    color: var(--gray);
-    font-size: 15px;
-    font-weight: 500;
+    color: var(--blue);
+    font-size: 17px;
+    font-weight: 600;
     letter-spacing: 0.3px;
     transition: color 0.2s;
     position: relative;
@@ -274,8 +274,8 @@
   }
   .stat-num span { color: var(--red); }
   .stat-label {
-    font-size: 13px;
-    color: var(--gray);
+    font-size: 17px;
+    color: var(--blue);
     margin-top: 4px;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -304,7 +304,7 @@
   .section-title span { color: var(--blue); }
   .section-sub {
     font-size: 17px;
-    color: var(--gray);
+    color: var(--blue);
     line-height: 1.7;
     max-width: 600px;
   }
@@ -322,7 +322,7 @@
   @media (max-width: 768px) { .vision-grid { grid-template-columns: 1fr; } }
   .vision-text p {
     font-size: 17px;
-    color: var(--gray);
+    color: var(--blue);
     line-height: 1.8;
     margin-bottom: 20px;
   }
@@ -356,7 +356,7 @@
   .vision-quote cite {
     display: block;
     margin-top: 20px;
-    font-size: 13px;
+    font-size: 17px;
     color: rgba(255,255,255,0.6);
     font-style: normal;
     letter-spacing: 2px;
@@ -425,7 +425,7 @@
   }
   .pillar-desc {
     font-size: 14px;
-    color: var(--gray);
+    color: var(--blue);
     line-height: 1.6;
   }
 
@@ -529,7 +529,7 @@
     text-align: center;
     margin-top: 24px;
     font-size: 14px;
-    color: var(--gray);
+    color: var(--blue);
     font-style: italic;
   }
 
@@ -571,7 +571,7 @@
   }
   .contact-band p {
     color: rgba(255,255,255,0.6);
-    font-size: 15px;
+    font-size: 17px;
     margin-bottom: 12px;
   }
   .contact-links {
@@ -599,7 +599,7 @@
   }
   footer p {
     color: rgba(255,255,255,0.3);
-    font-size: 13px;
+    font-size: 17px;
     line-height: 1.8;
   }
   footer a { color: rgba(255,255,255,0.5); text-decoration: none; }
@@ -635,7 +635,7 @@
 <!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">
-    <img src="12.png" alt="Ayiti Chanje">
+    <img src="logo.png" alt="Ayiti Chanje">
   </a>
   <ul class="nav-links">
     <li><a href="#vision" data-lang="fr">Notre vision</a><a href="#vision" data-lang="ht">Vizyon nou</a><a href="#vision" data-lang="en">Our vision</a></li>
@@ -648,7 +648,7 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
-    <img src="12.png" alt="Logo Ayiti Chanje" class="hero-logo">
+    <img src="logo.png" alt="Logo Ayiti Chanje" class="hero-logo">
 
     <div class="hero-badge" data-lang="fr">Mouvement Social &amp; Politique</div>
     <div class="hero-badge" data-lang="ht">Mouvman Sosyal &amp; Politik</div>
@@ -748,7 +748,7 @@
     <div class="pillars-grid fade-in">
       <div class="pillar-card">
         <div class="pillar-num">01</div>
-        <div class="pillar-icon">⚖️</div>
+        
         <div class="pillar-title" data-lang="fr">Gouvernance intègre, état de droit & sécurité</div>
         <div class="pillar-title" data-lang="ht">Gouvènans entèg, eta de dwa & sekirite</div>
         <div class="pillar-title" data-lang="en">Ethical governance, rule of law & security</div>
@@ -758,7 +758,7 @@
       </div>
       <div class="pillar-card">
         <div class="pillar-num">02</div>
-        <div class="pillar-icon">🌱</div>
+        
         <div class="pillar-title" data-lang="fr">Souveraineté économique & développement solidaire</div>
         <div class="pillar-title" data-lang="ht">Souverènte ekonomik & devlopman solidè</div>
         <div class="pillar-title" data-lang="en">Economic sovereignty & solidarity development</div>
@@ -768,7 +768,7 @@
       </div>
       <div class="pillar-card">
         <div class="pillar-num">03</div>
-        <div class="pillar-icon">📚</div>
+        
         <div class="pillar-title" data-lang="fr">Éducation, santé & cohésion sociale</div>
         <div class="pillar-title" data-lang="ht">Edikasyon, sante & kohezyon sosyal</div>
         <div class="pillar-title" data-lang="en">Education, health & social cohesion</div>
@@ -778,7 +778,7 @@
       </div>
       <div class="pillar-card">
         <div class="pillar-num">04</div>
-        <div class="pillar-icon">✊</div>
+        
         <div class="pillar-title" data-lang="fr">Leadership jeunesse, femmes & diaspora</div>
         <div class="pillar-title" data-lang="ht">Lidèchip jènès, fanm & dyaspora</div>
         <div class="pillar-title" data-lang="en">Youth, women & diaspora leadership</div>
@@ -788,7 +788,7 @@
       </div>
       <div class="pillar-card">
         <div class="pillar-num">05</div>
-        <div class="pillar-icon">🌍</div>
+        
         <div class="pillar-title" data-lang="fr">Souveraineté nationale, transition écologique & coopération</div>
         <div class="pillar-title" data-lang="ht">Souverènte nasyonal, tranzisyon ekolojik & kooperasyon</div>
         <div class="pillar-title" data-lang="en">National sovereignty, ecological transition & cooperation</div>
@@ -940,6 +940,10 @@ document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
 // Init
 setLang('fr', document.querySelectorAll('.lang-btn')[0]);
+
+// Force retour en haut à chaque chargement
+if (history.scrollRestoration) history.scrollRestoration = 'manual';
+window.scrollTo(0, 0);
 </script>
 </body>
 </html>
