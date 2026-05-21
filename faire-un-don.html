@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Faire un don — Ayiti Chanje</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue: #1a2b8c;
+    --red: #d42b2b;
+    --gold: #f0b429;
+    --white: #ffffff;
+    --light: #f5f6fa;
+    --dark: #0e1a5c;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Barlow', sans-serif;
+    background: var(--white);
+    color: #1a1a2e;
+  }
+
+  /* ── LANG SWITCHER ── */
+  .lang-bar {
+    background: var(--dark);
+    padding: 10px 24px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+  }
+  .lang-btn {
+    background: none;
+    border: 1px solid rgba(255,255,255,0.3);
+    color: rgba(255,255,255,0.7);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    cursor: pointer;
+    font-family: 'Barlow', sans-serif;
+    transition: all 0.2s;
+  }
+  .lang-btn.active, .lang-btn:hover {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--dark);
+    font-weight: 600;
+  }
+
+  /* ── HERO SECTION ── */
+  .hero {
+    background: linear-gradient(135deg, var(--dark) 0%, var(--blue) 60%, #2d4bc4 100%);
+    padding: 80px 24px 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    letter-spacing: 3px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .hero h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: clamp(40px, 7vw, 80px);
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+  .hero h1 span { color: var(--gold); }
+  .hero-sub {
+    font-size: clamp(16px, 2.5vw, 20px);
+    color: rgba(255,255,255,0.8);
+    max-width: 600px;
+    margin: 0 auto 40px;
+    line-height: 1.6;
+  }
+
+  /* ── MONTANT RAPIDE ── */
+  .amounts-section {
+    background: var(--light);
+    padding: 60px 24px;
+    text-align: center;
+  }
+  .section-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--dark);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+  .section-sub {
+    color: #666;
+    margin-bottom: 40px;
+    font-size: 16px;
+  }
+
+  .amounts-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+    max-width: 800px;
+    margin: 0 auto 40px;
+  }
+  .amount-card {
+    background: var(--white);
+    border: 2px solid #e0e4f0;
+    border-radius: 16px;
+    padding: 24px 32px;
+    cursor: pointer;
+    transition: all 0.2s;
+    min-width: 140px;
+    text-align: center;
+  }
+  .amount-card:hover, .amount-card.selected {
+    border-color: var(--blue);
+    background: var(--blue);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(26,43,140,0.2);
+  }
+  .amount-card:hover .amount-num,
+  .amount-card.selected .amount-num { color: var(--white); }
+  .amount-card:hover .amount-label,
+  .amount-card.selected .amount-label { color: var(--gold); }
+  .amount-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 36px;
+    font-weight: 900;
+    color: var(--blue);
+    display: block;
+  }
+  .amount-label {
+    font-size: 13px;
+    color: #888;
+    margin-top: 4px;
+  }
+  .amount-card.featured {
+    border-color: var(--red);
+    position: relative;
+  }
+  .amount-card.featured::before {
+    content: '⭐ Recommandé';
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--red);
+    color: white;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 12px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+
+  /* ── CTA BUTTONS ── */
+  .cta-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    margin-top: 32px;
+  }
+  .btn-primary {
+    display: inline-block;
+    background: var(--red);
+    color: var(--white);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 18px 48px;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s;
+    box-shadow: 0 4px 20px rgba(212,43,43,0.4);
+  }
+  .btn-primary:hover {
+    background: #b52020;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(212,43,43,0.5);
+  }
+  .btn-secondary {
+    display: inline-block;
+    background: transparent;
+    color: var(--blue);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 14px 36px;
+    border-radius: 50px;
+    border: 2px solid var(--blue);
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .btn-secondary:hover {
+    background: var(--blue);
+    color: var(--white);
+  }
+
+  /* ── CAMPAGNE 1€ ── */
+  .campaign-section {
+    background: var(--dark);
+    padding: 80px 24px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .campaign-section::after {
+    content: '1€';
+    position: absolute;
+    right: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 300px;
+    font-weight: 900;
+    color: rgba(255,255,255,0.03);
+    pointer-events: none;
+  }
+  .campaign-section .section-title { color: var(--gold); }
+  .campaign-section .section-sub { color: rgba(255,255,255,0.7); }
+
+  .stats-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    margin: 48px 0;
+  }
+  .stat-item { text-align: center; }
+  .stat-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 56px;
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+    display: block;
+  }
+  .stat-desc {
+    font-size: 14px;
+    color: rgba(255,255,255,0.6);
+    margin-top: 6px;
+  }
+
+  .slogans {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 40px auto;
+    max-width: 600px;
+  }
+  .slogan {
+    background: rgba(255,255,255,0.06);
+    border-left: 4px solid var(--gold);
+    padding: 16px 20px;
+    border-radius: 0 12px 12px 0;
+    font-size: 18px;
+    color: var(--white);
+    font-style: italic;
+    text-align: left;
+  }
+  .slogan .lang-tag {
+    font-size: 11px;
+    color: var(--gold);
+    font-style: normal;
+    font-weight: 700;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  /* ── POURQUOI ── */
+  .why-section {
+    padding: 80px 24px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 32px;
+    margin-top: 48px;
+  }
+  .why-card {
+    border-top: 4px solid var(--blue);
+    padding: 28px 0 0;
+  }
+  .why-icon {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 72px;
+    font-weight: 900;
+    color: var(--blue);
+    opacity: 0.15;
+    line-height: 1;
+    margin-bottom: 8px;
+    display: block;
+    letter-spacing: -2px;
+  }
+  .why-card h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--dark);
+    margin-bottom: 10px;
+  }
+  .why-card p {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.6;
+  }
+
+  /* ── TRANSPARENCY ── */
+  .transparency-section {
+    background: #f0f3ff;
+    padding: 60px 24px;
+    text-align: center;
+  }
+  .transparency-section .section-title { color: var(--dark); }
+  .transparency-note {
+    max-width: 640px;
+    margin: 20px auto 0;
+    font-size: 15px;
+    color: #555;
+    line-height: 1.7;
+  }
+  .secure-badges {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 32px;
+  }
+  .badge {
+    background: var(--white);
+    border: 1px solid #dde2f0;
+    border-radius: 10px;
+    padding: 12px 20px;
+    font-size: 13px;
+    color: var(--dark);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .amounts-grid { gap: 12px; }
+    .amount-card { min-width: 110px; padding: 18px 20px; }
+    .amount-num { font-size: 28px; }
+    .stats-row { gap: 24px; }
+    .stat-num { font-size: 40px; }
+  }
+
+  /* ── LANG VISIBILITY ── */
+  [data-lang] { display: none; }
+  [data-lang="fr"] { display: block; }
+  .inline-lang { display: none; }
+  .inline-lang.fr { display: inline; }
+</style>
+</head>
+<body>
+
+<!-- Sélecteur de langue -->
+<div class="lang-bar">
+  <button class="lang-btn active" onclick="setLang('fr', this)">🇫🇷 Français</button>
+  <button class="lang-btn" onclick="setLang('ht', this)">🇭🇹 Kreyòl</button>
+  <button class="lang-btn" onclick="setLang('en', this)">🇺🇸 English</button>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-label">Ayiti Chanje — Mouvement Social & Politique</p>
+
+  <h1 data-lang="fr">Donnez-nous<br><span>la force et les moyens</span><br>de tout changer</h1>
+  <h1 data-lang="ht">Ban nou<br><span>fòs la</span><br>pou chanje tout bagay</h1>
+  <h1 data-lang="en">Give us<br><span>the strength</span><br>to change everything</h1>
+
+  <p class="hero-sub" data-lang="fr">Votre soutien, même modeste, est le carburant d'un mouvement qui croit en une Haïti nouvelle — humaniste, intègre et patriote.</p>
+  <p class="hero-sub" data-lang="ht">Sipò ou, menm ti kras li ye, se gaz yon mouvman ki kwè nan yon Ayiti nouvo — imanis, entèg ak patriyot.</p>
+  <p class="hero-sub" data-lang="en">Your support, however small, fuels a movement that believes in a new Haiti — humanist, principled, and patriotic.</p>
+
+  <a href="#don" class="btn-primary" data-lang="fr">Faire un don maintenant</a>
+  <a href="#don" class="btn-primary" data-lang="ht">Fè yon don kounye a</a>
+  <a href="#don" class="btn-primary" data-lang="en">Donate now</a>
+</section>
+
+<!-- CAMPAGNE 1€/MOIS -->
+<section class="campaign-section" id="don">
+  <p class="hero-label" style="color:var(--gold)">
+    <span data-lang="fr">La campagne</span>
+    <span data-lang="ht">Kanpay la</span>
+    <span data-lang="en">The campaign</span>
+  </p>
+
+  <h2 class="section-title" data-lang="fr">1€ par semaine.<br>1 voix pour Haïti.</h2>
+  <h2 class="section-title" data-lang="ht">1€ pa semèn.<br>1 vwa pou Ayiti.</h2>
+  <h2 class="section-title" data-lang="en">1€ per week.<br>1 voice for Haiti.</h2>
+
+  <p class="section-sub" data-lang="fr">Un café, un mouvement. Votre engagement hebdomadaire, aussi petit soit-il, construit quelque chose de grand.</p>
+  <p class="section-sub" data-lang="ht">Yon kafe, yon mouvman. Angajman chak semèn ou, menm ti jan li ye, ap konstwi yon bagay gran.</p>
+  <p class="section-sub" data-lang="en">One coffee, one movement. Your weekly commitment, however small, builds something great.</p>
+
+  <div class="slogans">
+    <div class="slogan">
+      <span class="lang-tag">KREYÒL</span>
+      Nou bouke. Ak tèt ansanm, nap chanje Ayiti.
+    </div>
+    <div class="slogan">
+      <span class="lang-tag">FRANÇAIS</span>
+      Nous en avons assez. Ensemble, nous changerons Haïti.
+    </div>
+    <div class="slogan">
+      <span class="lang-tag">ENGLISH</span>
+      We're tired. Together, we will change Haiti.
+    </div>
+  </div>
+
+  <div class="cta-group">
+    <a href="#montants" class="btn-primary" data-lang="fr">Je donne 1€/semaine</a>
+    <a href="#montants" class="btn-primary" data-lang="ht">Mwen bay 1€/semèn</a>
+    <a href="#montants" class="btn-primary" data-lang="en">I give 1€/week</a>
+  </div>
+</section>
+
+<!-- MONTANTS -->
+<section class="amounts-section" id="montants">
+  <h2 class="section-title" data-lang="fr">Choisissez votre montant</h2>
+  <h2 class="section-title" data-lang="ht">Chwazi montan ou</h2>
+  <h2 class="section-title" data-lang="en">Choose your amount</h2>
+
+  <p class="section-sub" data-lang="fr">Don ponctuel ou hebdomadaire — chaque euro compte.</p>
+  <p class="section-sub" data-lang="ht">Don ponyèl oswa chak semèn — chak euro konte.</p>
+  <p class="section-sub" data-lang="en">One-time or weekly — every euro counts.</p>
+
+  <div class="amounts-grid">
+    <div class="amount-card featured" onclick="selectAmount(this, 1)">
+      <span class="amount-num">1€</span>
+      <div class="amount-label" data-lang="fr">par semaine</div>
+      <div class="amount-label" data-lang="ht">pa semèn</div>
+      <div class="amount-label" data-lang="en">per week</div>
+    </div>
+    <div class="amount-card" onclick="selectAmount(this, 5)">
+      <span class="amount-num">5€</span>
+      <div class="amount-label" data-lang="fr">don libre</div>
+      <div class="amount-label" data-lang="ht">don lib</div>
+      <div class="amount-label" data-lang="en">free gift</div>
+    </div>
+    <div class="amount-card" onclick="selectAmount(this, 10)">
+      <span class="amount-num">10€</span>
+      <div class="amount-label" data-lang="fr">don libre</div>
+      <div class="amount-label" data-lang="ht">don lib</div>
+      <div class="amount-label" data-lang="en">free gift</div>
+    </div>
+    <div class="amount-card" onclick="selectAmount(this, 20)">
+      <span class="amount-num">20€</span>
+      <div class="amount-label" data-lang="fr">don libre</div>
+      <div class="amount-label" data-lang="ht">don lib</div>
+      <div class="amount-label" data-lang="en">free gift</div>
+    </div>
+    <div class="amount-card" onclick="selectAmount(this, 50)">
+      <span class="amount-num">50€</span>
+      <div class="amount-label" data-lang="fr">don libre</div>
+      <div class="amount-label" data-lang="ht">don lib</div>
+      <div class="amount-label" data-lang="en">free gift</div>
+    </div>
+  </div>
+
+  <div class="cta-group">
+    <!-- Remplacer ce lien par le lien Stripe une fois configuré -->
+    <a href="STRIPE_LINK_ICI" class="btn-primary" id="donate-btn" data-lang="fr">Faire un don — 1€</a>
+    <a href="STRIPE_LINK_ICI" class="btn-primary" id="donate-btn-ht" data-lang="ht">Fè yon don — 1€</a>
+    <a href="STRIPE_LINK_ICI" class="btn-primary" id="donate-btn-en" data-lang="en">Donate — 1€</a>
+
+    <a href="STRIPE_LINK_ICI" class="btn-secondary" data-lang="fr">Don hebdomadaire récurrent</a>
+    <a href="STRIPE_LINK_ICI" class="btn-secondary" data-lang="ht">Don chak semèn rekiran</a>
+    <a href="STRIPE_LINK_ICI" class="btn-secondary" data-lang="en">Set up weekly giving</a>
+  </div>
+</section>
+
+<!-- POURQUOI -->
+<section class="why-section">
+  <div style="text-align:center">
+    <h2 class="section-title" data-lang="fr">Pourquoi nous soutenir ?</h2>
+    <h2 class="section-title" data-lang="ht">Poukisa sipòte nou ?</h2>
+    <h2 class="section-title" data-lang="en">Why support us?</h2>
+  </div>
+  <div class="why-grid">
+    <div class="why-card">
+      <span class="why-icon">01</span>
+      <h3 data-lang="fr">Gouvernance intègre</h3>
+      <h3 data-lang="ht">Gouvènans entèg</h3>
+      <h3 data-lang="en">Ethical governance</h3>
+      <p data-lang="fr">Nous travaillons pour un état de droit, une justice sociale et une sécurité durable pour tous les Haïtiens.</p>
+      <p data-lang="ht">Nou travay pou yon eta de dwa, yon jistis sosyal ak yon sekirite dirab pou tout Ayisyen.</p>
+      <p data-lang="en">We work for rule of law, social justice, and lasting security for all Haitians.</p>
+    </div>
+    <div class="why-card">
+      <span class="why-icon">02</span>
+      <h3 data-lang="fr">La diaspora mobilisée</h3>
+      <h3 data-lang="ht">Dyaspora mobilize</h3>
+      <h3 data-lang="en">Diaspora mobilized</h3>
+      <p data-lang="fr">Haïtiens du monde entier, unis pour construire une nouvelle élite politique compétente et patriote.</p>
+      <p data-lang="ht">Ayisyen toupatou nan lemonn, ini pou konstri yon nouvo elit politik konpetan ak patriyot.</p>
+      <p data-lang="en">Haitians from around the world, united to build a new competent and patriotic political elite.</p>
+    </div>
+    <div class="why-card">
+      <span class="why-icon">03</span>
+      <h3 data-lang="fr">Éducation & jeunesse</h3>
+      <h3 data-lang="ht">Edikasyon ak jènès</h3>
+      <h3 data-lang="en">Education & youth</h3>
+      <p data-lang="fr">Préparer les jeunes générations à assumer des responsabilités politiques en Haïti et à l'étranger.</p>
+      <p data-lang="ht">Prepare jenerasyon jèn yo pou asime responsabilite politik ann Ayiti ak aletranje.</p>
+      <p data-lang="en">Preparing younger generations to take on political responsibilities in Haiti and abroad.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TRANSPARENCE -->
+<section class="transparency-section">
+  <h2 class="section-title" data-lang="fr">Transparence & sécurité</h2>
+  <h2 class="section-title" data-lang="ht">Transparan & sekirite</h2>
+  <h2 class="section-title" data-lang="en">Transparency & security</h2>
+
+  <p class="transparency-note" data-lang="fr">Ayiti Chanje est une association déclarée à Paris (75018), enregistrée sous la loi 1901. Vos dons sont traités de façon sécurisée via Stripe. Aucune information bancaire n'est stockée sur notre site.</p>
+  <p class="transparency-note" data-lang="ht">Ayiti Chanje se yon asosyasyon deklare nan Paris (75018), anrejistre anba lwa 1901. Don ou yo trete ak sekirite via Stripe. Pa gen enfòmasyon bankè ki estoke sou sit nou an.</p>
+  <p class="transparency-note" data-lang="en">Ayiti Chanje is a registered association in Paris (75018), registered under French law 1901. Your donations are processed securely via Stripe. No banking information is stored on our site.</p>
+
+  <div class="secure-badges">
+    <div class="badge">🔒 Paiement sécurisé Stripe</div>
+    <div class="badge">🏛️ Association loi 1901</div>
+    <div class="badge">📍 Paris 75018</div>
+    <div class="badge">✉️ ayitichanje1@gmail.com</div>
+  </div>
+</section>
+
+<script>
+function setLang(lang, btn) {
+  // Update buttons
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+  if(btn) btn.classList.add('active');
+
+  // Show/hide blocks
+  document.querySelectorAll('[data-lang]').forEach(el => {
+    el.style.display = el.dataset.lang === lang ? '' : 'none';
+  });
+
+  // Handle inline spans
+  document.querySelectorAll('.inline-lang').forEach(el => {
+    el.style.display = el.classList.contains(lang) ? 'inline' : 'none';
+  });
+
+  // Reset display for amount labels (they're inside cards)
+  document.querySelectorAll('.amount-label[data-lang]').forEach(el => {
+    el.style.display = el.dataset.lang === lang ? 'block' : 'none';
+  });
+}
+
+function selectAmount(card, amount) {
+  document.querySelectorAll('.amount-card').forEach(c => c.classList.remove('selected'));
+  card.classList.add('selected');
+  // Update button text with amount
+  ['donate-btn','donate-btn-ht','donate-btn-en'].forEach(id => {
+    const btn = document.getElementById(id);
+    if (btn) {
+      const texts = {fr: `Faire un don — ${amount}€`, ht: `Fè yon don — ${amount}€`, en: `Donate — ${amount}€`};
+      const lang = id === 'donate-btn' ? 'fr' : id === 'donate-btn-ht' ? 'ht' : 'en';
+      btn.textContent = texts[lang];
+    }
+  });
+}
+
+// Init
+setLang('fr', document.querySelectorAll('.lang-btn')[0]);
+</script>
+</body>
+</html>
