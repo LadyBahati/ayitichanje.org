@@ -89,8 +89,8 @@
     line-height: 1.6;
   }
 
-  /* ── MONTANT RAPIDE ── */
-  .amounts-section {
+  /* ── DONORBOX SECTION ── */
+  .donorbox-section {
     background: var(--light);
     padding: 60px 24px;
     text-align: center;
@@ -109,74 +109,12 @@
     margin-bottom: 40px;
     font-size: 16px;
   }
-
-  .amounts-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-    justify-content: center;
-    max-width: 800px;
-    margin: 0 auto 40px;
-  }
-  .amount-card {
-    background: var(--white);
-    border: 2px solid #e0e4f0;
-    border-radius: 16px;
-    padding: 24px 32px;
-    cursor: pointer;
-    transition: all 0.2s;
-    min-width: 140px;
-    text-align: center;
-  }
-  .amount-card:hover, .amount-card.selected {
-    border-color: var(--blue);
-    background: var(--blue);
-    transform: translateY(-3px);
-    box-shadow: 0 8px 24px rgba(26,43,140,0.2);
-  }
-  .amount-card:hover .amount-num,
-  .amount-card.selected .amount-num { color: var(--white); }
-  .amount-card:hover .amount-label,
-  .amount-card.selected .amount-label { color: var(--gold); }
-  .amount-num {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 36px;
-    font-weight: 900;
-    color: var(--blue);
-    display: block;
-  }
-  .amount-label {
-    font-size: 13px;
-    color: #888;
-    margin-top: 4px;
-  }
-  .amount-card.featured {
-    border-color: var(--red);
-    position: relative;
-  }
-  .amount-card.featured::before {
-    content: '⭐ Recommandé';
-    position: absolute;
-    top: -12px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--red);
-    color: white;
-    font-size: 11px;
-    font-weight: 600;
-    padding: 3px 12px;
-    border-radius: 20px;
-    white-space: nowrap;
+  .donorbox-wrapper {
+    max-width: 600px;
+    margin: 0 auto;
   }
 
   /* ── CTA BUTTONS ── */
-  .cta-group {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
-    margin-top: 32px;
-  }
   .btn-primary {
     display: inline-block;
     background: var(--red);
@@ -193,31 +131,15 @@
     text-decoration: none;
     transition: all 0.2s;
     box-shadow: 0 4px 20px rgba(212,43,43,0.4);
+    max-width: 400px;
+    width: 100%;
+    display: block;
+    margin: 0 auto;
   }
   .btn-primary:hover {
     background: #b52020;
     transform: translateY(-2px);
     box-shadow: 0 8px 28px rgba(212,43,43,0.5);
-  }
-  .btn-secondary {
-    display: inline-block;
-    background: transparent;
-    color: var(--blue);
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 18px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    padding: 14px 36px;
-    border-radius: 50px;
-    border: 2px solid var(--blue);
-    cursor: pointer;
-    text-decoration: none;
-    transition: all 0.2s;
-  }
-  .btn-secondary:hover {
-    background: var(--blue);
-    color: var(--white);
   }
 
   /* ── CAMPAGNE 1€ ── */
@@ -242,28 +164,6 @@
   }
   .campaign-section .section-title { color: var(--gold); }
   .campaign-section .section-sub { color: rgba(255,255,255,0.7); }
-
-  .stats-row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 40px;
-    margin: 48px 0;
-  }
-  .stat-item { text-align: center; }
-  .stat-num {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 56px;
-    font-weight: 900;
-    color: var(--gold);
-    line-height: 1;
-    display: block;
-  }
-  .stat-desc {
-    font-size: 14px;
-    color: rgba(255,255,255,0.6);
-    margin-top: 6px;
-  }
 
   .slogans {
     display: flex;
@@ -369,11 +269,7 @@
 
   /* ── RESPONSIVE ── */
   @media (max-width: 600px) {
-    .amounts-grid { gap: 12px; }
-    .amount-card { min-width: 110px; padding: 18px 20px; }
-    .amount-num { font-size: 28px; }
-    .stats-row { gap: 24px; }
-    .stat-num { font-size: 40px; }
+    .why-grid { gap: 24px; }
   }
 
   /* ── LANG VISIBILITY ── */
@@ -410,7 +306,7 @@
 </section>
 
 <!-- CAMPAGNE 1€/MOIS -->
-<section class="campaign-section" id="don">
+<section class="campaign-section">
   <p class="hero-label" style="color:var(--gold)">
     <span data-lang="fr">La campagne</span>
     <span data-lang="ht">Kanpay la</span>
@@ -440,65 +336,24 @@
     </div>
   </div>
 
-  <div class="cta-group">
-    <a href="#montants" class="btn-primary" data-lang="fr">Je donne 1€/semaine</a>
-    <a href="#montants" class="btn-primary" data-lang="ht">Mwen bay 1€/semèn</a>
-    <a href="#montants" class="btn-primary" data-lang="en">I give 1€/week</a>
-  </div>
+  <a href="#don" class="btn-primary" data-lang="fr">Je donne maintenant</a>
+  <a href="#don" class="btn-primary" data-lang="ht">Mwen bay kounye a</a>
+  <a href="#don" class="btn-primary" data-lang="en">I donate now</a>
 </section>
 
-<!-- MONTANTS -->
-<section class="amounts-section" id="montants">
-  <h2 class="section-title" data-lang="fr">Choisissez votre montant</h2>
-  <h2 class="section-title" data-lang="ht">Chwazi montan ou</h2>
-  <h2 class="section-title" data-lang="en">Choose your amount</h2>
+<!-- FORMULAIRE DONORBOX -->
+<section class="donorbox-section" id="don">
+  <h2 class="section-title" data-lang="fr">Faites votre don</h2>
+  <h2 class="section-title" data-lang="ht">Fè don ou</h2>
+  <h2 class="section-title" data-lang="en">Make your donation</h2>
 
-  <p class="section-sub" data-lang="fr">Don ponctuel ou hebdomadaire — chaque euro compte.</p>
-  <p class="section-sub" data-lang="ht">Don ponyèl oswa chak semèn — chak euro konte.</p>
-  <p class="section-sub" data-lang="en">One-time or weekly — every euro counts.</p>
+  <p class="section-sub" data-lang="fr">Don ponctuel ou mensuel — chaque euro compte pour Haïti.</p>
+  <p class="section-sub" data-lang="ht">Don ponyèl oswa chak mwa — chak euro konte pou Ayiti.</p>
+  <p class="section-sub" data-lang="en">One-time or monthly — every euro counts for Haiti.</p>
 
-  <div class="amounts-grid">
-    <div class="amount-card featured" onclick="selectAmount(this, 1)">
-      <span class="amount-num">1€</span>
-      <div class="amount-label" data-lang="fr">par semaine</div>
-      <div class="amount-label" data-lang="ht">pa semèn</div>
-      <div class="amount-label" data-lang="en">per week</div>
-    </div>
-    <div class="amount-card" onclick="selectAmount(this, 5)">
-      <span class="amount-num">5€</span>
-      <div class="amount-label" data-lang="fr">don libre</div>
-      <div class="amount-label" data-lang="ht">don lib</div>
-      <div class="amount-label" data-lang="en">free gift</div>
-    </div>
-    <div class="amount-card" onclick="selectAmount(this, 10)">
-      <span class="amount-num">10€</span>
-      <div class="amount-label" data-lang="fr">don libre</div>
-      <div class="amount-label" data-lang="ht">don lib</div>
-      <div class="amount-label" data-lang="en">free gift</div>
-    </div>
-    <div class="amount-card" onclick="selectAmount(this, 20)">
-      <span class="amount-num">20€</span>
-      <div class="amount-label" data-lang="fr">don libre</div>
-      <div class="amount-label" data-lang="ht">don lib</div>
-      <div class="amount-label" data-lang="en">free gift</div>
-    </div>
-    <div class="amount-card" onclick="selectAmount(this, 50)">
-      <span class="amount-num">50€</span>
-      <div class="amount-label" data-lang="fr">don libre</div>
-      <div class="amount-label" data-lang="ht">don lib</div>
-      <div class="amount-label" data-lang="en">free gift</div>
-    </div>
-  </div>
-
-  <div class="cta-group">
-    <!-- Remplacer ce lien par le lien Stripe une fois configuré -->
-    <a href="STRIPE_LINK_ICI" class="btn-primary" id="donate-btn" data-lang="fr">Faire un don — 1€</a>
-    <a href="STRIPE_LINK_ICI" class="btn-primary" id="donate-btn-ht" data-lang="ht">Fè yon don — 1€</a>
-    <a href="STRIPE_LINK_ICI" class="btn-primary" id="donate-btn-en" data-lang="en">Donate — 1€</a>
-
-    <a href="STRIPE_LINK_ICI" class="btn-secondary" data-lang="fr">Don hebdomadaire récurrent</a>
-    <a href="STRIPE_LINK_ICI" class="btn-secondary" data-lang="ht">Don chak semèn rekiran</a>
-    <a href="STRIPE_LINK_ICI" class="btn-secondary" data-lang="en">Set up weekly giving</a>
+  <div class="donorbox-wrapper">
+    <script type="module" src="https://donorbox.org/widgets.js" async></script>
+    <dbox-widget campaign="soutenir-ayiti-chanje" type="donation_form" enable-auto-scroll="true"></dbox-widget>
   </div>
 </section>
 
@@ -546,55 +401,33 @@
   <h2 class="section-title" data-lang="ht">Transparan & sekirite</h2>
   <h2 class="section-title" data-lang="en">Transparency & security</h2>
 
-  <p class="transparency-note" data-lang="fr">Ayiti Chanje est une association déclarée à Paris (75018), enregistrée sous la loi 1901. Vos dons sont traités de façon sécurisée via Stripe. Aucune information bancaire n'est stockée sur notre site.</p>
-  <p class="transparency-note" data-lang="ht">Ayiti Chanje se yon asosyasyon deklare nan Paris (75018), anrejistre anba lwa 1901. Don ou yo trete ak sekirite via Stripe. Pa gen enfòmasyon bankè ki estoke sou sit nou an.</p>
-  <p class="transparency-note" data-lang="en">Ayiti Chanje is a registered association in Paris (75018), registered under French law 1901. Your donations are processed securely via Stripe. No banking information is stored on our site.</p>
+  <p class="transparency-note" data-lang="fr">Ayiti Chanje est une association déclarée à Paris (75018), enregistrée sous la loi 1901. Vos dons sont traités de façon sécurisée via Donorbox et PayPal. Aucune information bancaire n'est stockée sur notre site.</p>
+  <p class="transparency-note" data-lang="ht">Ayiti Chanje se yon asosyasyon deklare nan Paris (75018), anrejistre anba lwa 1901. Don ou yo trete ak sekirite via Donorbox ak PayPal. Pa gen enfòmasyon bankè ki estoke sou sit nou an.</p>
+  <p class="transparency-note" data-lang="en">Ayiti Chanje is a registered association in Paris (75018), registered under French law 1901. Your donations are processed securely via Donorbox and PayPal. No banking information is stored on our site.</p>
 
   <div class="secure-badges">
-    <div class="badge">🔒 Paiement sécurisé Stripe</div>
+    <div class="badge">🔒 Paiement sécurisé Donorbox</div>
+    <div class="badge">💳 PayPal accepté</div>
     <div class="badge">🏛️ Association loi 1901</div>
     <div class="badge">📍 Paris 75018</div>
-    <div class="badge">✉️ ayitichanje1@gmail.com</div>
+    <div class="badge">✉️ contact@ayitichanje.org</div>
   </div>
 </section>
 
 <script>
 function setLang(lang, btn) {
-  // Update buttons
   document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
   if(btn) btn.classList.add('active');
 
-  // Show/hide blocks
   document.querySelectorAll('[data-lang]').forEach(el => {
     el.style.display = el.dataset.lang === lang ? '' : 'none';
   });
 
-  // Handle inline spans
   document.querySelectorAll('.inline-lang').forEach(el => {
     el.style.display = el.classList.contains(lang) ? 'inline' : 'none';
   });
-
-  // Reset display for amount labels (they're inside cards)
-  document.querySelectorAll('.amount-label[data-lang]').forEach(el => {
-    el.style.display = el.dataset.lang === lang ? 'block' : 'none';
-  });
 }
 
-function selectAmount(card, amount) {
-  document.querySelectorAll('.amount-card').forEach(c => c.classList.remove('selected'));
-  card.classList.add('selected');
-  // Update button text with amount
-  ['donate-btn','donate-btn-ht','donate-btn-en'].forEach(id => {
-    const btn = document.getElementById(id);
-    if (btn) {
-      const texts = {fr: `Faire un don — ${amount}€`, ht: `Fè yon don — ${amount}€`, en: `Donate — ${amount}€`};
-      const lang = id === 'donate-btn' ? 'fr' : id === 'donate-btn-ht' ? 'ht' : 'en';
-      btn.textContent = texts[lang];
-    }
-  });
-}
-
-// Init
 setLang('fr', document.querySelectorAll('.lang-btn')[0]);
 </script>
 </body>
