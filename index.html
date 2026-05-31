@@ -17,9 +17,7 @@
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
-
   html { scroll-behavior: smooth; }
-
   body {
     font-family: 'Barlow', sans-serif;
     background: var(--white);
@@ -27,7 +25,6 @@
     overflow-x: hidden;
   }
 
-  /* ── LANG BAR ── */
   .lang-bar {
     background: var(--dark);
     padding: 14px 40px;
@@ -53,7 +50,6 @@
     font-weight: 600;
   }
 
-  /* ── NAV ── */
   nav {
     background: var(--white);
     border-bottom: 2px solid var(--light);
@@ -67,22 +63,9 @@
     height: 88px;
     box-shadow: 0 2px 20px rgba(26,43,140,0.08);
   }
-  .nav-logo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    text-decoration: none;
-  }
-  .nav-logo img {
-    height: 70px;
-    width: auto;
-  }
-  .nav-links {
-    display: flex;
-    gap: 40px;
-    list-style: none;
-    align-items: center;
-  }
+  .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .nav-logo img { height: 70px; width: auto; }
+  .nav-links { display: flex; gap: 40px; list-style: none; align-items: center; }
   .nav-links a {
     text-decoration: none;
     color: var(--blue);
@@ -95,14 +78,11 @@
   .nav-links a::after {
     content: '';
     position: absolute;
-    bottom: -4px;
-    left: 0;
-    width: 0;
-    height: 2px;
+    bottom: -4px; left: 0;
+    width: 0; height: 2px;
     background: var(--red);
     transition: width 0.2s;
   }
-  .nav-links a:hover { color: var(--blue); }
   .nav-links a:hover::after { width: 100%; }
   .nav-cta {
     background: var(--red);
@@ -117,14 +97,9 @@
     box-shadow: 0 4px 14px rgba(212,43,43,0.3);
     transition: all 0.2s !important;
   }
-  .nav-cta:hover {
-    background: #b52020 !important;
-    transform: translateY(-1px);
-    box-shadow: 0 6px 18px rgba(212,43,43,0.4) !important;
-  }
+  .nav-cta:hover { background: #b52020 !important; transform: translateY(-1px); }
   .nav-cta::after { display: none !important; }
 
-  /* ── HERO ── */
   .hero {
     background: linear-gradient(150deg, var(--dark) 0%, var(--blue) 55%, #2d4bc4 100%);
     min-height: 88vh;
@@ -145,18 +120,12 @@
   .hero::after {
     content: '';
     position: absolute;
-    bottom: -2px;
-    left: 0;
-    right: 0;
+    bottom: -2px; left: 0; right: 0;
     height: 80px;
     background: var(--white);
     clip-path: ellipse(55% 100% at 50% 100%);
   }
-  .hero-inner {
-    position: relative;
-    z-index: 1;
-    max-width: 900px;
-  }
+  .hero-inner { position: relative; z-index: 1; max-width: 900px; }
   .hero-badge {
     display: inline-block;
     background: rgba(240,180,41,0.15);
@@ -171,8 +140,7 @@
     margin-bottom: 28px;
   }
   .hero-logo {
-    width: 120px;
-    height: 120px;
+    width: 120px; height: 120px;
     object-fit: contain;
     margin-bottom: 28px;
     filter: drop-shadow(0 8px 32px rgba(0,0,0,0.3));
@@ -201,12 +169,7 @@
     margin: 0 auto 48px;
     line-height: 1.65;
   }
-  .hero-buttons {
-    display: flex;
-    gap: 16px;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
+  .hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
   .btn-primary {
     display: inline-block;
     background: var(--red);
@@ -223,12 +186,10 @@
     text-decoration: none;
     transition: all 0.2s;
     box-shadow: 0 4px 20px rgba(212,43,43,0.4);
+    position: relative;
+    z-index: 10;
   }
-  .btn-primary:hover {
-    background: #b52020;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 28px rgba(212,43,43,0.5);
-  }
+  .btn-primary:hover { background: #b52020; transform: translateY(-2px); }
   .btn-outline {
     display: inline-block;
     background: transparent;
@@ -244,395 +205,97 @@
     cursor: pointer;
     text-decoration: none;
     transition: all 0.2s;
+    position: relative;
+    z-index: 10;
   }
-  .btn-outline:hover {
-    border-color: var(--white);
-    background: rgba(255,255,255,0.1);
-  }
+  .btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.1); }
 
-  /* ── STATS BAR ── */
-  .stats-bar {
-    background: var(--white);
-    border-bottom: 1px solid #e8eaf4;
-    padding: 32px 24px;
-  }
+  .stats-bar { background: var(--white); border-bottom: 1px solid #e8eaf4; padding: 32px 24px; }
   .stats-inner {
-    max-width: 900px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    gap: 64px;
-    flex-wrap: wrap;
+    max-width: 900px; margin: 0 auto;
+    display: flex; justify-content: center; gap: 64px; flex-wrap: wrap;
   }
   .stat-item { text-align: center; }
-  .stat-num {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 42px;
-    font-weight: 900;
-    color: var(--blue);
-    line-height: 1;
-  }
+  .stat-num { font-family: 'Barlow Condensed', sans-serif; font-size: 42px; font-weight: 900; color: var(--blue); line-height: 1; }
   .stat-num span { color: var(--red); }
-  .stat-label {
-    font-size: 17px;
-    color: var(--blue);
-    margin-top: 4px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
+  .stat-label { font-size: 17px; color: var(--blue); margin-top: 4px; text-transform: uppercase; letter-spacing: 1px; }
 
-  /* ── SECTION GÉNÉRIQUE ── */
   section { padding: 80px 24px; }
-  .section-label {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 12px;
-    letter-spacing: 3px;
-    color: var(--red);
-    text-transform: uppercase;
-    margin-bottom: 12px;
-    display: block;
-  }
-  .section-title {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: clamp(32px, 5vw, 52px);
-    font-weight: 900;
-    color: var(--dark);
-    text-transform: uppercase;
-    line-height: 1;
-    margin-bottom: 16px;
-  }
+  .section-label { font-family: 'Barlow Condensed', sans-serif; font-size: 12px; letter-spacing: 3px; color: var(--red); text-transform: uppercase; margin-bottom: 12px; display: block; }
+  .section-title { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(32px, 5vw, 52px); font-weight: 900; color: var(--dark); text-transform: uppercase; line-height: 1; margin-bottom: 16px; }
   .section-title span { color: var(--blue); }
-  .section-sub {
-    font-size: 17px;
-    color: var(--blue);
-    line-height: 1.7;
-    max-width: 600px;
-  }
+  .section-sub { font-size: 17px; color: var(--blue); line-height: 1.7; max-width: 600px; }
   .section-inner { max-width: 1100px; margin: 0 auto; }
 
-  /* ── VISION ── */
   .vision-section { background: var(--light); }
-  .vision-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 48px;
-    align-items: center;
-    margin-top: 48px;
-  }
+  .vision-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; margin-top: 48px; }
   @media (max-width: 768px) { .vision-grid { grid-template-columns: 1fr; } }
-  .vision-text p {
-    font-size: 17px;
-    color: var(--blue);
-    line-height: 1.8;
-    margin-bottom: 20px;
-  }
-  .vision-quote {
-    background: var(--blue);
-    border-radius: 20px;
-    padding: 40px;
-    color: var(--white);
-    position: relative;
-    overflow: hidden;
-  }
-  .vision-quote::before {
-    content: '"';
-    position: absolute;
-    top: -20px;
-    left: 20px;
-    font-size: 140px;
-    font-family: 'Barlow Condensed', sans-serif;
-    color: rgba(255,255,255,0.08);
-    line-height: 1;
-  }
-  .vision-quote blockquote {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 26px;
-    font-weight: 700;
-    line-height: 1.3;
-    position: relative;
-    z-index: 1;
-  }
+  .vision-text p { font-size: 17px; color: var(--blue); line-height: 1.8; margin-bottom: 20px; }
+  .vision-quote { background: var(--blue); border-radius: 20px; padding: 40px; color: var(--white); position: relative; overflow: hidden; }
+  .vision-quote::before { content: '"'; position: absolute; top: -20px; left: 20px; font-size: 140px; font-family: 'Barlow Condensed', sans-serif; color: rgba(255,255,255,0.08); line-height: 1; }
+  .vision-quote blockquote { font-family: 'Barlow Condensed', sans-serif; font-size: 26px; font-weight: 700; line-height: 1.3; position: relative; z-index: 1; }
   .vision-quote blockquote span { color: var(--gold); }
-  .vision-quote cite {
-    display: block;
-    margin-top: 20px;
-    font-size: 17px;
-    color: rgba(255,255,255,0.6);
-    font-style: normal;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-  }
+  .vision-quote cite { display: block; margin-top: 20px; font-size: 17px; color: rgba(255,255,255,0.6); font-style: normal; letter-spacing: 2px; text-transform: uppercase; }
 
-  /* ── 5 PILIERS ── */
   .pillars-section { background: var(--white); }
-  .pillars-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    margin-top: 48px;
-  }
-  .pillar-card {
-    background: var(--light);
-    border-radius: 20px;
-    padding: 32px 24px;
-    border: 2px solid transparent;
-    transition: all 0.3s;
-    cursor: default;
-    position: relative;
-    overflow: hidden;
-  }
-  .pillar-card::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: var(--blue);
-    transform: scaleX(0);
-    transition: transform 0.3s;
-  }
-  .pillar-card:hover {
-    border-color: var(--blue);
-    background: var(--white);
-    transform: translateY(-4px);
-    box-shadow: 0 12px 32px rgba(26,43,140,0.12);
-  }
+  .pillars-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 48px; }
+  .pillar-card { background: var(--light); border-radius: 20px; padding: 32px 24px; border: 2px solid transparent; transition: all 0.3s; position: relative; overflow: hidden; }
+  .pillar-card::before { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 4px; background: var(--blue); transform: scaleX(0); transition: transform 0.3s; }
+  .pillar-card:hover { border-color: var(--blue); background: var(--white); transform: translateY(-4px); box-shadow: 0 12px 32px rgba(26,43,140,0.12); }
   .pillar-card:hover::before { transform: scaleX(1); }
-  .pillar-num {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 52px;
-    font-weight: 900;
-    color: rgba(26,43,140,0.1);
-    line-height: 1;
-    margin-bottom: 12px;
-  }
-  .pillar-card:hover .pillar-num { color: rgba(26,43,140,0.2); }
-  .pillar-icon {
-    font-size: 28px;
-    margin-bottom: 16px;
-    display: block;
-  }
-  .pillar-title {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--dark);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 10px;
-    line-height: 1.2;
-  }
-  .pillar-desc {
-    font-size: 14px;
-    color: var(--blue);
-    line-height: 1.6;
-  }
+  .pillar-num { font-family: 'Barlow Condensed', sans-serif; font-size: 52px; font-weight: 900; color: rgba(26,43,140,0.1); line-height: 1; margin-bottom: 12px; }
+  .pillar-title { font-family: 'Barlow Condensed', sans-serif; font-size: 18px; font-weight: 700; color: var(--dark); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; line-height: 1.2; }
+  .pillar-desc { font-size: 14px; color: var(--blue); line-height: 1.6; }
 
-  /* ── VALEURS ── */
-  .values-section {
-    background: linear-gradient(135deg, var(--dark) 0%, var(--blue) 100%);
-    padding: 80px 24px;
-  }
+  .values-section { background: linear-gradient(135deg, var(--dark) 0%, var(--blue) 100%); padding: 80px 24px; }
   .values-section .section-title { color: var(--white); }
   .values-section .section-label { color: var(--gold); }
-  .values-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-top: 48px;
-    justify-content: center;
-  }
-  .value-pill {
-    background: rgba(255,255,255,0.1);
-    border: 1px solid rgba(255,255,255,0.2);
-    color: var(--white);
-    padding: 14px 28px;
-    border-radius: 50px;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 18px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: all 0.2s;
-  }
-  .value-pill:hover {
-    background: var(--gold);
-    border-color: var(--gold);
-    color: var(--dark);
-    transform: translateY(-2px);
-  }
+  .values-grid { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 48px; justify-content: center; }
+  .value-pill { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: var(--white); padding: 14px 28px; border-radius: 50px; font-family: 'Barlow Condensed', sans-serif; font-size: 18px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; transition: all 0.2s; }
+  .value-pill:hover { background: var(--gold); border-color: var(--gold); color: var(--dark); transform: translateY(-2px); }
 
-  /* ── GALERIE LANCEMENT ── */
   .gallery-section { background: var(--light); }
-  .gallery-header {
-    text-align: center;
-    margin-bottom: 48px;
-  }
-  .gallery-date {
-    display: inline-block;
-    background: var(--red);
-    color: var(--white);
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    padding: 6px 20px;
-    border-radius: 20px;
-    margin-bottom: 16px;
-  }
-  .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-  }
+  .gallery-header { text-align: center; margin-bottom: 48px; }
+  .gallery-date { display: inline-block; background: var(--red); color: var(--white); font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 6px 20px; border-radius: 20px; margin-bottom: 16px; }
+  .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
   @media (max-width: 600px) { .gallery-grid { grid-template-columns: 1fr 1fr; } }
-  .gallery-slot {
-    background: #dde0f0;
-    border-radius: 16px;
-    aspect-ratio: 4/3;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    position: relative;
-    transition: transform 0.2s;
-  }
-  .gallery-slot:first-child {
-    grid-column: span 2;
-    aspect-ratio: 16/9;
-  }
+  .gallery-slot { background: #dde0f0; border-radius: 16px; aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; transition: transform 0.2s; }
+  .gallery-slot:first-child { grid-column: span 2; aspect-ratio: 16/9; }
   .gallery-slot:hover { transform: scale(1.02); }
-  .gallery-slot img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  .gallery-placeholder {
-    text-align: center;
-    color: rgba(26,43,140,0.3);
-  }
-  .gallery-placeholder svg {
-    width: 40px;
-    height: 40px;
-    margin-bottom: 8px;
-    opacity: 0.5;
-  }
-  .gallery-placeholder p {
-    font-size: 12px;
-    font-family: 'Barlow Condensed', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
-  .gallery-note {
-    text-align: center;
-    margin-top: 24px;
-    font-size: 14px;
-    color: var(--blue);
-    font-style: italic;
-  }
+  .gallery-slot img { width: 100%; height: 100%; object-fit: cover; }
+  .gallery-note { text-align: center; margin-top: 24px; font-size: 14px; color: var(--blue); font-style: italic; }
 
-  /* ── REJOINDRE ── */
   .join-section { background: var(--white); text-align: center; }
   .join-inner { max-width: 700px; margin: 0 auto; }
-  .join-actions {
-    display: flex;
-    gap: 16px;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 40px;
-  }
-  .btn-blue {
-    display: inline-block;
-    background: var(--blue);
-    color: var(--white);
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 20px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    padding: 16px 44px;
-    border-radius: 50px;
-    text-decoration: none;
-    transition: all 0.2s;
-    box-shadow: 0 4px 20px rgba(26,43,140,0.25);
-  }
-  .btn-blue:hover {
-    background: var(--dark);
-    transform: translateY(-2px);
-  }
+  .join-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 40px; }
+  .btn-blue { display: inline-block; background: var(--blue); color: var(--white); font-family: 'Barlow Condensed', sans-serif; font-size: 20px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; padding: 16px 44px; border-radius: 50px; text-decoration: none; transition: all 0.2s; box-shadow: 0 4px 20px rgba(26,43,140,0.25); }
+  .btn-blue:hover { background: var(--dark); transform: translateY(-2px); }
 
-  /* ── CONTACT BAND ── */
-  .contact-band {
-    background: var(--dark);
-    padding: 40px 24px;
-    text-align: center;
-  }
-  .contact-band p {
-    color: rgba(255,255,255,0.6);
-    font-size: 17px;
-    margin-bottom: 12px;
-  }
-  .contact-links {
-    display: flex;
-    gap: 24px;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  .contact-links a {
-    color: var(--gold);
-    text-decoration: none;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 16px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    transition: color 0.2s;
-  }
+  .contact-band { background: var(--dark); padding: 40px 24px; text-align: center; }
+  .contact-band p { color: rgba(255,255,255,0.6); font-size: 17px; margin-bottom: 12px; }
+  .contact-links { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; }
+  .contact-links a { color: var(--gold); text-decoration: none; font-family: 'Barlow Condensed', sans-serif; font-size: 16px; font-weight: 600; letter-spacing: 1px; transition: color 0.2s; }
   .contact-links a:hover { color: var(--white); }
 
-  /* ── FOOTER ── */
-  footer {
-    background: #07103d;
-    padding: 32px 24px;
-    text-align: center;
-  }
-  footer p {
-    color: rgba(255,255,255,0.3);
-    font-size: 17px;
-    line-height: 1.8;
-  }
+  footer { background: #07103d; padding: 32px 24px; text-align: center; }
+  footer p { color: rgba(255,255,255,0.3); font-size: 17px; line-height: 1.8; }
   footer a { color: rgba(255,255,255,0.5); text-decoration: none; }
 
-  /* ── ANIMATIONS ── */
-  .fade-in {
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-  }
-  .fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
 
-  /* ── MOBILE NAV ── */
   .nav-toggle { display: none; background: none; border: none; cursor: pointer; }
-  @media (max-width: 768px) {
-    .nav-links { display: none; }
-    .nav-toggle { display: block; }
-  }
+  @media (max-width: 768px) { .nav-links { display: none; } .nav-toggle { display: block; } }
 </style>
 </head>
 <body>
 
-<!-- LANG BAR -->
 <div class="lang-bar">
   <button class="lang-btn active" onclick="setLang('fr', this)">🇫🇷 Français</button>
   <button class="lang-btn" onclick="setLang('ht', this)">🇭🇹 Kreyòl</button>
   <button class="lang-btn" onclick="setLang('en', this)">🇺🇸 English</button>
 </div>
 
-<!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">
     <img src="logo.png" alt="Ayiti Chanje">
@@ -645,28 +308,22 @@
   </ul>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
     <img src="logo.png" alt="Logo Ayiti Chanje" class="hero-logo">
-
     <div class="hero-badge" data-lang="fr">Mouvement Social &amp; Politique</div>
     <div class="hero-badge" data-lang="ht">Mouvman Sosyal &amp; Politik</div>
     <div class="hero-badge" data-lang="en">Social &amp; Political Movement</div>
-
     <h1 data-lang="fr">Pour la<br><span class="accent">refondation</span><br>d'<span class="accent-red">Haïti</span></h1>
     <h1 data-lang="ht">Pou<br><span class="accent">refondasyon</span><br><span class="accent-red">Ayiti</span></h1>
     <h1 data-lang="en">For the<br><span class="accent">refoundation</span><br>of <span class="accent-red">Haiti</span></h1>
-
     <p class="hero-sub" data-lang="fr">Nou bouke. Ak tèt ansanm, nap chanje Ayiti.<br><span style="font-size:0.82em; opacity:0.7;">Nous en avons assez. Ensemble, nous changerons Haïti.</span></p>
     <p class="hero-sub" data-lang="ht">Nou bouke. Ak tèt ansanm, nap chanje Ayiti.</p>
     <p class="hero-sub" data-lang="en">Nou bouke. Ak tèt ansanm, nap chanje Ayiti.<br><span style="font-size:0.82em; opacity:0.7;">We're tired. Together, we will change Haiti.</span></p>
-
     <div class="hero-buttons">
       <a href="#vision" class="btn-primary" data-lang="fr">Découvrir notre vision</a>
       <a href="#vision" class="btn-primary" data-lang="ht">Dekouvri vizyon nou</a>
       <a href="#vision" class="btn-primary" data-lang="en">Discover our vision</a>
-
       <a href="faire-un-don.html" class="btn-outline" data-lang="fr">Soutenir le mouvement</a>
       <a href="faire-un-don.html" class="btn-outline" data-lang="ht">Sipòte mouvman an</a>
       <a href="faire-un-don.html" class="btn-outline" data-lang="en">Support the movement</a>
@@ -674,7 +331,6 @@
   </div>
 </section>
 
-<!-- STATS BAR -->
 <div class="stats-bar fade-in">
   <div class="stats-inner">
     <div class="stat-item">
@@ -704,7 +360,6 @@
   </div>
 </div>
 
-<!-- VISION -->
 <section class="vision-section" id="vision">
   <div class="section-inner">
     <div class="vision-grid fade-in">
@@ -716,10 +371,10 @@
         <h2 class="section-title" data-lang="ht">Refonde<br><span>Ayiti</span><br>ansanm</h2>
         <h2 class="section-title" data-lang="en">Rebuild<br><span>Haiti</span><br>together</h2>
         <p data-lang="fr">Ayiti Chanje puise sa légitimité dans les valeurs d'humanisme, d'éthique, de patriotisme, d'engagement citoyen et de tolérance. Face aux défis multiples auxquels Haïti est confrontée, nous proposons une alternative crédible, ancrée dans la réalité du pays.</p>
-        <p data-lang="ht">Ayiti Chanje jwenn lejitimite li nan valè imannis, etik, patriyotis, angajman sitwaye ak tolerans. Face ak defi multip Ayiti ap fè fas, nou propose yon altènativ kredib, anrajine nan reyalite peyi a.</p>
-        <p data-lang="en">Ayiti Chanje draws its legitimacy from the values of humanism, ethics, patriotism, civic engagement and tolerance. Facing Haiti's multiple challenges, we propose a credible alternative, rooted in the country's reality.</p>
+        <p data-lang="ht">Ayiti Chanje jwenn lejitimite li nan valè imannis, etik, patriyotis, angajman sitwaye ak tolerans.</p>
+        <p data-lang="en">Ayiti Chanje draws its legitimacy from the values of humanism, ethics, patriotism, civic engagement and tolerance.</p>
         <p data-lang="fr">Nous croyons que seul un dialogue ouvert, respectueux et inclusif peut permettre l'émergence de solutions durables aux crises sociales, politiques, économiques et environnementales.</p>
-        <p data-lang="ht">Nou kwè ke sèlman yon dyalòg ouvè, respektye ak enklizif ka pèmèt emèjans solisyon dirab pou kriz sosyal, politik, ekonomik ak anviwonman.</p>
+        <p data-lang="ht">Nou kwè ke sèlman yon dyalòg ouvè, respektye ak enklizif ka pèmèt emèjans solisyon dirab.</p>
         <p data-lang="en">We believe that only an open, respectful and inclusive dialogue can allow the emergence of lasting solutions to social, political, economic and environmental crises.</p>
       </div>
       <div>
@@ -734,10 +389,9 @@
   </div>
 </section>
 
-<!-- 5 PILIERS -->
 <section class="pillars-section" id="piliers">
   <div class="section-inner">
-    <div class="fade-in" style="text-align:center; margin-bottom: 0;">
+    <div class="fade-in" style="text-align:center;">
       <span class="section-label" data-lang="fr">Nos 5 piliers</span>
       <span class="section-label" data-lang="ht">5 pilye nou yo</span>
       <span class="section-label" data-lang="en">Our 5 pillars</span>
@@ -748,7 +402,6 @@
     <div class="pillars-grid fade-in">
       <div class="pillar-card">
         <div class="pillar-num">01</div>
-        
         <div class="pillar-title" data-lang="fr">Gouvernance intègre, état de droit & sécurité</div>
         <div class="pillar-title" data-lang="ht">Gouvènans entèg, eta de dwa & sekirite</div>
         <div class="pillar-title" data-lang="en">Ethical governance, rule of law & security</div>
@@ -758,7 +411,6 @@
       </div>
       <div class="pillar-card">
         <div class="pillar-num">02</div>
-        
         <div class="pillar-title" data-lang="fr">Souveraineté économique & développement solidaire</div>
         <div class="pillar-title" data-lang="ht">Souverènte ekonomik & devlopman solidè</div>
         <div class="pillar-title" data-lang="en">Economic sovereignty & solidarity development</div>
@@ -768,7 +420,6 @@
       </div>
       <div class="pillar-card">
         <div class="pillar-num">03</div>
-        
         <div class="pillar-title" data-lang="fr">Éducation, santé & cohésion sociale</div>
         <div class="pillar-title" data-lang="ht">Edikasyon, sante & kohezyon sosyal</div>
         <div class="pillar-title" data-lang="en">Education, health & social cohesion</div>
@@ -778,7 +429,6 @@
       </div>
       <div class="pillar-card">
         <div class="pillar-num">04</div>
-        
         <div class="pillar-title" data-lang="fr">Leadership jeunesse, femmes & diaspora</div>
         <div class="pillar-title" data-lang="ht">Lidèchip jènès, fanm & dyaspora</div>
         <div class="pillar-title" data-lang="en">Youth, women & diaspora leadership</div>
@@ -788,7 +438,6 @@
       </div>
       <div class="pillar-card">
         <div class="pillar-num">05</div>
-        
         <div class="pillar-title" data-lang="fr">Souveraineté nationale, transition écologique & coopération</div>
         <div class="pillar-title" data-lang="ht">Souverènte nasyonal, tranzisyon ekolojik & kooperasyon</div>
         <div class="pillar-title" data-lang="en">National sovereignty, ecological transition & cooperation</div>
@@ -800,7 +449,6 @@
   </div>
 </section>
 
-<!-- VALEURS -->
 <section class="values-section">
   <div class="section-inner">
     <div class="fade-in" style="text-align:center;">
@@ -812,34 +460,16 @@
       <h2 class="section-title" data-lang="en">What we<br>believe in</h2>
     </div>
     <div class="values-grid fade-in">
-      <div class="value-pill" data-lang="fr">Humanisme</div>
-      <div class="value-pill" data-lang="ht">Imannis</div>
-      <div class="value-pill" data-lang="en">Humanism</div>
-
-      <div class="value-pill" data-lang="fr">Éthique & intégrité</div>
-      <div class="value-pill" data-lang="ht">Etik & entegrite</div>
-      <div class="value-pill" data-lang="en">Ethics & integrity</div>
-
-      <div class="value-pill" data-lang="fr">Patriotisme</div>
-      <div class="value-pill" data-lang="ht">Patriyotis</div>
-      <div class="value-pill" data-lang="en">Patriotism</div>
-
-      <div class="value-pill" data-lang="fr">Cohésion sociale</div>
-      <div class="value-pill" data-lang="ht">Kohezyon sosyal</div>
-      <div class="value-pill" data-lang="en">Social cohesion</div>
-
-      <div class="value-pill" data-lang="fr">Progrès & innovation</div>
-      <div class="value-pill" data-lang="ht">Pwogrè & inovasyon</div>
-      <div class="value-pill" data-lang="en">Progress & innovation</div>
-
-      <div class="value-pill" data-lang="fr">Justice sociale</div>
-      <div class="value-pill" data-lang="ht">Jistis sosyal</div>
-      <div class="value-pill" data-lang="en">Social justice</div>
+      <div class="value-pill" data-lang="fr">Humanisme</div><div class="value-pill" data-lang="ht">Imannis</div><div class="value-pill" data-lang="en">Humanism</div>
+      <div class="value-pill" data-lang="fr">Éthique & intégrité</div><div class="value-pill" data-lang="ht">Etik & entegrite</div><div class="value-pill" data-lang="en">Ethics & integrity</div>
+      <div class="value-pill" data-lang="fr">Patriotisme</div><div class="value-pill" data-lang="ht">Patriyotis</div><div class="value-pill" data-lang="en">Patriotism</div>
+      <div class="value-pill" data-lang="fr">Cohésion sociale</div><div class="value-pill" data-lang="ht">Kohezyon sosyal</div><div class="value-pill" data-lang="en">Social cohesion</div>
+      <div class="value-pill" data-lang="fr">Progrès & innovation</div><div class="value-pill" data-lang="ht">Pwogrè & inovasyon</div><div class="value-pill" data-lang="en">Progress & innovation</div>
+      <div class="value-pill" data-lang="fr">Justice sociale</div><div class="value-pill" data-lang="ht">Jistis sosyal</div><div class="value-pill" data-lang="en">Social justice</div>
     </div>
   </div>
 </section>
 
-<!-- GALERIE LANCEMENT -->
 <section class="gallery-section" id="lancement">
   <div class="section-inner">
     <div class="gallery-header fade-in">
@@ -850,35 +480,22 @@
       <h2 class="section-title" data-lang="ht">Lanse<br><span>mouvman an</span></h2>
       <h2 class="section-title" data-lang="en">The movement<br><span>launch</span></h2>
     </div>
-    <div class="gallery-grid fade-in" id="gallery">
-      <div class="gallery-slot"><img src="lancement-08.jpg" alt="Lancement Ayiti Chanje Paris"></div>
-      <div class="gallery-slot"><img src="lancement-01.jpg" alt="Lancement Ayiti Chanje Paris"></div>
-      <div class="gallery-slot"><img src="lancement-02.jpg" alt="Lancement Ayiti Chanje Paris"></div>
-      <div class="gallery-slot"><img src="lancement-03.jpg" alt="Lancement Ayiti Chanje Paris"></div>
-      <div class="gallery-slot"><img src="lancement-04.jpg" alt="Lancement Ayiti Chanje Paris"></div>
+    <div class="gallery-grid fade-in">
+      <div class="gallery-slot"><img src="PHOTO-2026-01-17-23-24-20__10_.jpg" alt="Lancement Ayiti Chanje Paris"></div>
+      <div class="gallery-slot"><img src="PHOTO-2026-01-17-23-24-20__7_.jpg" alt="Lancement Ayiti Chanje Paris"></div>
+      <div class="gallery-slot"><img src="PHOTO-2026-01-17-23-24-20__4_.jpg" alt="Lancement Ayiti Chanje Paris"></div>
+      <div class="gallery-slot"><img src="PHOTO-2026-01-17-23-24-20__9_.jpg" alt="Lancement Ayiti Chanje Paris"></div>
+      <div class="gallery-slot"><img src="PHOTO-2026-01-17-23-24-20__2_.jpg" alt="Lancement Ayiti Chanje Paris"></div>
     </div>
-
-    <!-- Galerie complète (toutes les photos) -->
-    <div style="display:grid; grid-template-columns: repeat(5,1fr); gap:12px; margin-top:12px;" class="fade-in">
-      <div class="gallery-slot"><img src="lancement-05.jpg" alt="Lancement Ayiti Chanje Paris"></div>
-      <div class="gallery-slot"><img src="lancement-06.jpg" alt="Lancement Ayiti Chanje Paris"></div>
-      <div class="gallery-slot"><img src="lancement-07.jpg" alt="Lancement Ayiti Chanje Paris"></div>
-      <div class="gallery-slot"><img src="lancement-09.jpg" alt="Lancement Ayiti Chanje Paris"></div>
-      <div class="gallery-slot"><img src="lancement-10.jpg" alt="Lancement Ayiti Chanje Paris"></div>
-      <div class="gallery-slot"><img src="lancement-11.jpg" alt="Lancement Ayiti Chanje Paris"></div>
-      <div class="gallery-slot"><img src="lancement-12.jpg" alt="Lancement Ayiti Chanje Paris"></div>
-      <div class="gallery-slot"><img src="lancement-13.jpg" alt="Lancement Ayiti Chanje Paris"></div>
-      <div class="gallery-slot"><img src="lancement-14.jpg" alt="Lancement Ayiti Chanje Paris"></div>
-      <div class="gallery-slot"><img src="lancement-15.jpg" alt="Lancement Ayiti Chanje Paris"></div>
+    <div style="display:grid; grid-template-columns: repeat(3,1fr); gap:12px; margin-top:12px;" class="fade-in">
+      <div class="gallery-slot"><img src="PHOTO-2026-01-17-23-24-20__3_.jpg" alt="Lancement Ayiti Chanje Paris"></div>
     </div>
-
-    <p class="gallery-note fade-in" data-lang="fr">Lancement officiel d'Ayiti Chanje — Paris 18e, 13 décembre 2025</p>
-    <p class="gallery-note fade-in" data-lang="ht">Lanse ofisyèl Ayiti Chanje — Paris 18e, 13 desanm 2025</p>
-    <p class="gallery-note fade-in" data-lang="en">Official launch of Ayiti Chanje — Paris 18th, December 13, 2025</p>
+    <p class="gallery-note fade-in" data-lang="fr">Lancement officiel d'Ayiti Chanje — Paris, 13 décembre 2025</p>
+    <p class="gallery-note fade-in" data-lang="ht">Lanse ofisyèl Ayiti Chanje — Paris, 13 desanm 2025</p>
+    <p class="gallery-note fade-in" data-lang="en">Official launch of Ayiti Chanje — Paris, December 13, 2025</p>
   </div>
 </section>
 
-<!-- REJOINDRE -->
 <section class="join-section">
   <div class="join-inner fade-in">
     <span class="section-label" data-lang="fr">Ensemble</span>
@@ -887,13 +504,13 @@
     <h2 class="section-title" data-lang="fr">Rejoignez<br><span>le mouvement</span></h2>
     <h2 class="section-title" data-lang="ht">Rantre nan<br><span>mouvman an</span></h2>
     <h2 class="section-title" data-lang="en">Join<br><span>the movement</span></h2>
-    <p class="section-sub" style="margin: 0 auto;" data-lang="fr">Haïtiens de la diaspora et du pays, citoyens engagés, jeunes leaders — votre place est dans ce mouvement. Ensemble, nous pouvons refonder Haïti.</p>
-    <p class="section-sub" style="margin: 0 auto;" data-lang="ht">Ayisyen dyaspora ak nan peyi a, sitwayen angaje, jèn lidè — plas ou nan mouvman sa a. Ansanm, nou ka refonde Ayiti.</p>
+    <p class="section-sub" style="margin: 0 auto;" data-lang="fr">Haïtiennes et Haïtiens de la diaspora et du pays, citoyens engagés, jeunes leaders — votre place est dans ce mouvement. Ensemble, nous pouvons refonder Haïti.</p>
+    <p class="section-sub" style="margin: 0 auto;" data-lang="ht">Ayisyen ak Ayisyèn dyaspora ak nan peyi a, sitwayen angaje, jèn lidè — plas ou nan mouvman sa a. Ansanm, nou ka refonde Ayiti.</p>
     <p class="section-sub" style="margin: 0 auto;" data-lang="en">Haitians of the diaspora and the homeland, engaged citizens, young leaders — your place is in this movement. Together, we can rebuild Haiti.</p>
     <div class="join-actions">
-      <a href="mailto:ayitichanje1@gmail.com" class="btn-blue" data-lang="fr">Nous contacter</a>
-      <a href="mailto:ayitichanje1@gmail.com" class="btn-blue" data-lang="ht">Kontakte nou</a>
-      <a href="mailto:ayitichanje1@gmail.com" class="btn-blue" data-lang="en">Contact us</a>
+      <a href="mailto:contact@ayitichanje.org" class="btn-blue" data-lang="fr">Nous contacter</a>
+      <a href="mailto:contact@ayitichanje.org" class="btn-blue" data-lang="ht">Kontakte nou</a>
+      <a href="mailto:contact@ayitichanje.org" class="btn-blue" data-lang="en">Contact us</a>
       <a href="faire-un-don.html" class="btn-primary" data-lang="fr">Faire un don</a>
       <a href="faire-un-don.html" class="btn-primary" data-lang="ht">Fè yon don</a>
       <a href="faire-un-don.html" class="btn-primary" data-lang="en">Donate</a>
@@ -901,23 +518,21 @@
   </div>
 </section>
 
-<!-- CONTACT BAND -->
 <div class="contact-band">
-  <p data-lang="fr">20 Rue de Panama — 75018 Paris &nbsp;|&nbsp; Association loi 1901</p>
-  <p data-lang="ht">20 Ri Panama — 75018 Pari &nbsp;|&nbsp; Asosyasyon lwa 1901</p>
-  <p data-lang="en">20 Rue de Panama — 75018 Paris &nbsp;|&nbsp; French law 1901 association</p>
+  <p data-lang="fr">20 Rue de Panama — Paris &nbsp;|&nbsp; Association loi 1901</p>
+  <p data-lang="ht">20 Ri Panama — Pari &nbsp;|&nbsp; Asosyasyon lwa 1901</p>
+  <p data-lang="en">20 Rue de Panama — Paris &nbsp;|&nbsp; French law 1901 association</p>
   <div class="contact-links">
-    <a href="mailto:ayitichanje1@gmail.com">✉ ayitichanje1@gmail.com</a>
+    <a href="mailto:contact@ayitichanje.org">✉ contact@ayitichanje.org</a>
     <a href="tel:+33783069512">📞 07 83 06 95 12</a>
     <a href="https://twitter.com/Ayiti_chanje" target="_blank">🐦 @Ayiti_chanje</a>
   </div>
 </div>
 
-<!-- FOOTER -->
 <footer>
   <p>© 2025–2026 Ayiti Chanje — Mouvement Social &amp; Politique<br>
   <a href="faire-un-don.html" data-lang="fr">Faire un don</a><a href="faire-un-don.html" data-lang="ht">Fè yon don</a><a href="faire-un-don.html" data-lang="en">Donate</a>
-  &nbsp;·&nbsp; <a href="mailto:ayitichanje1@gmail.com">Contact</a>
+  &nbsp;·&nbsp; <a href="mailto:contact@ayitichanje.org">Contact</a>
   &nbsp;·&nbsp; <a href="https://twitter.com/Ayiti_chanje">@Ayiti_chanje</a></p>
 </footer>
 
@@ -930,26 +545,17 @@ function setLang(lang, btn) {
   });
 }
 
-// Scroll fade-in
 const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) { e.target.classList.add('visible'); }
-  });
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
 }, { threshold: 0.1 });
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-// Init
 setLang('fr', document.querySelectorAll('.lang-btn')[0]);
 
-// Force retour en haut à chaque chargement
 if (history.scrollRestoration) history.scrollRestoration = 'manual';
 window.scrollTo(0, 0);
-// Double sécurité après le rendu
 setTimeout(() => window.scrollTo(0, 0), 50);
-// Nettoyer le hash dans l'URL sans recharger
-if (window.location.hash) {
-  history.replaceState(null, '', window.location.pathname);
-}
+if (window.location.hash) history.replaceState(null, '', window.location.pathname);
 </script>
 </body>
 </html>
