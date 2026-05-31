@@ -298,7 +298,7 @@
   <p class="hero-sub" data-lang="ht">Sipò ou, menm ti kras li ye, se gaz yon mouvman ki kwè nan yon Ayiti nouvo — imanis, entèg ak patriyot.</p>
   <p class="hero-sub" data-lang="en">Your support, however small, fuels a movement that believes in a new Haiti — humanist, principled, and patriotic.</p>
 
-  <a href="https://donorbox.org/soutenir-ayiti-chanje" target="_blank" class="btn-primary" style="position:relative;z-index:10;display:inline-block;width:auto;">Faire un don</a>
+  <a href="https://donorbox.org/soutenir-ayiti-chanje" target="_blank" class="btn-primary" id="donate-btn" style="position:relative;z-index:10;display:inline-block;width:auto;">Faire un don</a>
 </section>
 
 <!-- CAMPAGNE 1€/MOIS -->
@@ -399,12 +399,23 @@ function setLang(lang, btn) {
   document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
   if(btn) btn.classList.add('active');
 
-  document.querySelectorAll('[data-lang]').forEach(el => {
-    el.style.display = el.dataset.lang === lang ? '' : 'none';
-  });
+  const btnTexts = {fr: 'Faire un don', ht: 'Fè yon don', en: 'Donate'};
+  const donateBtn = document.getElementById('donate-btn');
+  if (donateBtn) donateBtn.textContent = btnTexts[lang];
 
-  document.querySelectorAll('.inline-lang').forEach(el => {
-    el.style.display = el.classList.contains(lang) ? 'inline' : 'none';
+  document.querySelectorAll('[data-lang]').forEach(el => {
+    if (el.dataset.lang === lang) {
+      const tag = el.tagName.toLowerCase();
+      if (tag === 'h1' || tag === 'h2' || tag === 'p' || tag === 'div' || tag === 'section') {
+        el.style.display = 'block';
+      } else if (tag === 'a' || tag === 'span' || tag === 'button') {
+        el.style.display = 'inline-block';
+      } else {
+        el.style.display = '';
+      }
+    } else {
+      el.style.display = 'none';
+    }
   });
 }
 
